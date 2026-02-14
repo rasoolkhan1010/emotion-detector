@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Emotion Detector</title>
+
+    <!-- Face API -->
+    <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script defer src="script.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: white;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px #000000aa;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px #00000088;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        video {
+            border-radius: 20px;
+            border: 5px solid #00ffcc;
+            box-shadow: 0 0 40px #00ffcc;
+            max-width: 100%;
+        }
+
+        #emotionBox {
+            margin-top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #ff6a00, #ee0979);
+            color: white;
+            text-shadow: 1px 1px 6px #000000aa;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #emotionBox.detected {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px #ffffffaa;
+        }
+
+        @media(max-width: 700px) {
+            video {
+                width: 90%;
+            }
+
+            #emotionBox {
+                font-size: 24px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>AI Real-Time Emotion Detector</h1>
+
+    <div class="card">
+        <video id="video" width="640" height="480" autoplay muted></video>
+        <div id="emotionBox">Loading...</div>
+    </div>
+
+</body>
+
+</html>
